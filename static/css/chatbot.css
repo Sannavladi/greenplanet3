@@ -1,0 +1,19 @@
+
+/* Anna  start*/
+
+.chat-bot-container {
+	background-color: #f2f2f2;
+	padding: 20px;
+	border-radius: 5px;
+  }
+  
+  .chat-bot-message {
+	background-color: #f0f0f0;
+	color: #333;
+	padding: 10px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+  }
+
+
+/* Anna / end*/
