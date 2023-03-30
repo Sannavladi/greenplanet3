@@ -4,11 +4,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="{% static 'css/accueil-style.css' %}"
-      type="text/css"
-    />
+
+    {% if page == 'home' %} 
+        <link rel="stylesheet" href="{% static 'css/accueil-style.css' %}" type="text/css"/>
+        <title>Green Planet | Accueil</title>
+    {% endif %}
+
+    {% if page == 'service' %} 
+    <link rel="stylesheet" href="{% static 'css/nos-services-style.css' %}" type="text/css"/>
+    <title>Green Planet | Nos services</title>
+    {%endif%}
+
+    {% if page == 'about' %} 
+      <link rel="stylesheet" href="{% static 'css/qui-sommes-nous.css' %}" type="text/css"/>
+      <title>Green Planet | Qui sommes-nous ?</title>
+    {%endif%}
+
+    {% if page == 'contact' %} 
+      <link rel="stylesheet" href="{% static 'css/contact-style.css' %}" type="text/css"/>
+      <title>Green Planet | Contact</title>
+    {%endif%}
+
+    {% if page == 'chatbot' %} 
+      <link rel="stylesheet" href="{% static 'css/.css' %}" type="text/css"/>
+      <title>Green Planet | Chatbot</title>
+    {%endif%}
+
+      
     <script
       src="https://kit.fontawesome.com/8e5b8c7544.js"
       crossorigin="anonymous"
@@ -19,7 +41,6 @@
       sizes="32x32"
       href="{% static 'images-accueil/favicon.png' %}"
     />
-    <title>Green Planet | Accueil</title>
     {% load static %}
   </head>
 
@@ -55,8 +76,8 @@
       </nav>
     </header>
 
-    <!--Ici le contenu du site web-->
-
+    <!--Ici le contenu du site web/Accueil-->
+    {% if page == 'home' %}
     <div class="accueil-titre">
       <h1>L'ÉCOLOGIE, UN JEU D'ENFANT !</h1>
       <p class="accueil-sensibiliser">
@@ -66,7 +87,6 @@
     </div>
 
     <!--3 blocs alignés avec des boutons cliquables-->
-    {% if page == 'home' %}
     <section class="accueil-bloc">
       <div class="accueil-agenda">
         <h3>Actualités</h3>
@@ -295,21 +315,235 @@
       </form>
     </section>
     {%endif%}
-     {% if page == 'chatbot'%}
-         partie chatbot 
-         <h2>{{reponse}}</h2>
+    <!--End of Accueil-->
+
+
+
+    <!--Ici le contenu du site web/Nos services-->
+    {% if page == 'service'%}
+
+     <h1 id="nos-services_h1">Nos services</h1>
+        
+     <h2 class="nos-services_interventions">Interventions dans les écoles</h2>
+     <div class="nos-services_bloc-1">
+         <div class="nos-services_colonne1">
+             <p class="nos-services-texte">Vous allez pouvoir sensibiliser vos élèves tout en s'amusant, en les responsabilisant grâce à des jeux ludiques tels que des escape games ou encore les Greenkits.
+                 Vous pourrez ainsi travailler leur esprit d'équipe en leur proposant des défis écologiques entre les écoles ou les classes ou encore faire des ateliers "do it yourself".
+             </p>
+             <div class="nos-services-style-button">
+                 <a class="bouton" href="#nos-services_popup1"><button class="nos-services_bouttons">En maternelle</button></a>
+
+                 <!--Fenetre pop-up pour interventions en maternelle-->
+                 <div id="nos-services_popup1" class="nos-services_popup_overlay">
+                     <div class="nos-services_popup">
+                         <a class="nos-services_popup_close" href="#">&times;</a>
+                         <h3 class="nos-services_titre-popup">Interventions dans les écoles maternelles</h3>
+                         <img class="nos-services_image-popup" src="{% static 'images-accueil/flore.JPG' %}" alt="image enfants">
+                         <p class="nos-services_texte-popup">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit delectus, consequatur est saepe explicabo id optio repudiandae nam, magni tempora quaerat nesciunt repellendus iure. Dignissimos minima quaerat soluta voluptates! Corrupti!</p>
+                     </div>
+                 </div>
+                 <!--Fin de fenetre pop-up pour interventions en maternelle-->
+
+                 <a class="bouton" href="#nos-services_popup2"><button class="nos-services_bouttons">Au collège</button></a>
+                 <!--Fenetre pop-up pour interventions en collège-->
+                 <div id="nos-services_popup2" class="nos-services_popup_overlay">
+                     <div class="nos-services_popup">
+                         <a class="nos-services_popup_close" href="#">&times;</a>
+                         <h3 class="nos-services_titre-popup">Interventions dans les collèges</h3>
+                         <img class="nos-services_image-popup" src="{% static 'images-accueil/recyclerie.JPG' %}" alt="image enfants">
+                         <p class="nos-services_texte-popup">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit delectus, consequatur est saepe explicabo id optio repudiandae nam, magni tempora quaerat nesciunt repellendus iure. Dignissimos minima quaerat soluta voluptates! Corrupti!</p>
+                     </div>
+                 </div>
+                 <!--Fin de fenetre pop-up pour interventions en collège-->
+
+                 <a class="bouton" href="#nos-services_popup3"><button class="nos-services_bouttons">En primaire</button></a>
+
+                 <!--Fenetre pop-up pour interventions en primaire-->
+                 <div id="nos-services_popup3" class="nos-services_popup_overlay">
+                     <div class="nos-services_popup">
+                         <a class="nos-services_popup_close" href="#">&times;</a>
+                         <h3 class="nos-services_titre-popup">Interventions dans les écoles primaires</h3>
+                         <img class="nos-services_image-popup" src="{% static 'images-accueil/clean walk.JPG' %}" alt="image enfants">
+                         <p class="nos-services_texte-popup">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit delectus, consequatur est saepe explicabo id optio repudiandae nam, magni tempora quaerat nesciunt repellendus iure. Dignissimos minima quaerat soluta voluptates! Corrupti!</p>
+                     </div>
+                 </div>
+                 <!--Fin de fenetre pop-up pour interventions en primaire-->
+
+                <a class="bouton" href="#nos-services_popup4"> <button class="nos-services_bouttons">Au lycée</button></a>
+
+                 <!--Fenetre pop-up pour interventions en lycée-->
+                 <div id="nos-services_popup4" class="nos-services_popup_overlay">
+                     <div class="nos-services_popup">
+                         <a class="nos-services_popup_close" href="#">&times;</a>
+                         <h3 class="nos-services_titre-popup">Interventions dans les lycées</h3>
+                         <img class="nos-services_image-popup" src="{% static 'images-nos-services/groupe ados.png' %}" alt="image enfants">
+                         <p class="nos-services_texte-popup">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit delectus, consequatur est saepe explicabo id optio repudiandae nam, magni tempora quaerat nesciunt repellendus iure. Dignissimos minima quaerat soluta voluptates! Corrupti!</p>
+                     </div>
+                 </div>
+                 <!--Fin de fenetre pop-up pour interventions en lycée-->
+             </div>
+         </div>
+         <div class="nos-services_colonne2">
+             <img class="nos-services_groupe-ados" src="{% static 'images-nos-services/groupe ados.png' %}" alt="image ado">
+         </div>
+     </div>
+     
+     <h2 class="nos-services_kit">Kit de sensibilisation</h2>
+                 <div class="nos-services_bloc-2">
+                 <div class="nos-services_sous-bloc-1">
+                 <img class="nos-services_kit-recyclage" src="{% static 'images-nos-services/kit.jpg' %}" alt="image kit">
+                 </div>
+                 <div class="nos-services_sous-bloc-2">
+                      <button class="bouton-commander-un-kit nos-services_bouttons">Commander un Greenkit</button>
+                     <p class="nos-services-texte">Notre Greenkit est conçu pour accompagner vos élèves à mettre en oeuvre des résolutions écologiques. Notre Greenkit contient : un seau à compost, une gourde, des cabas, une brosse à vaisselle...</p>
+                 </div>
+                
+         </div>
+     {%endif%}
+     <!--End of Nos services-->
+
+         
+      <!--Ici le contenu du site web/Qui sommes-nous?-->
+      {% if page == 'about' %}
+         
+         <section class="quisommesnous_globale">
+                
+            <h1>Qui sommes-nous ?</h1>                                                      
+
+            <div class="quisommesnous_green-planet"> <!--Premier bloc "Green Planet"-->
+                <h2 id="qui-sommes-nous_soustitre1">Green Planet</h2>
+
+                <div id="qui-sommes-nous_blocgeneral" >  
+                    <div id="quisommesnous_blocgauche">   
+                        <div class="quisommesnous_texte_green_plante"> <em>Green Planet est une entreprise créée en 2018 à Paris. Nous avons animé plus de 100 interventions dans les écoles.</em>
+                            <br>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam repellat ad a corrupti. Cum magnam asperiores exercitationem, reiciendis velit unde nisi autem in mollitia voluptatibus ex culpa aut voluptates quaerat necessitatibus quos beatae dolor a, vitae perspiciatis. Vero, eaque laboriosam? </div>
+                        <div class="quisommesnous_bouton"><a href="{% static 'contact.html' %}">Nous contacter</div></a>
+
+                    </div>
+                    <div id="quisommesnous_blocdroite">
+                        <div id="quisommesnous_ile"><img id="quisommesnous_image-ile" src="{% static 'images-quisommesnous/lighthouse-gif-large.gif' %}" alt="img ile"></div> 
+                    </div>
+                </div>
+
+            </div> <!--Fermeture premier bloc "Green Planet"-->
+
+            
+             <!--Deuxième bloc "Notre équipe"-->
+                <h2 id="quisommesnous_titre2">Notre équipe</h2>
+                <div class="quisommesnous_notre-equipe">
+                        <div class="quisommesnous_personne">
+                            <div> <img class="quisommesnous_photo_equipe" src="{% static 'images-quisommesnous/femme1.PNG' %}" alt="photodirectrice"></div>
+                            <div class="quisommesnous_texte_equipe"><em>Alice Cazenave</em> <br>Directrice de Green Planet</div>
+                        </div>
+
+                        <div class="quisommesnous_personne">
+                                <div> <img class="quisommesnous_photo_equipe" src="{% static 'images-quisommesnous/homme1.PNG' %}"alt="photo_charge_homme"></div>
+                                <div class="quisommesnous_texte_equipe"><em>Auguste Bouchal</em> <br>Chargé de mission</div>
+                        </div>
+
+                        <div class="quisommesnous_personne">
+                            <div > <img class="quisommesnous_photo_equipe"src="{% static 'images-quisommesnous/femme2.PNG' %}" alt="photo_charge_femme"></div>
+                            <div class="quisommesnous_texte_equipe"><em>Lili Emile</em> <br>Chargée de mission</div> 
+                        </div>
+            </div> <!--Fermeture deuxième bloc "Notre équipe"-->
+                                
+             <!--Troisième bloc "Nos partenaires"-->
+                    <h2 id="quisommesnous_titre3">Nos partenaires</h2>
+                    <div class="quisommesnous_nospartenaires">
+                            <div> <img class="quisommesnous_logo" src="{% static 'images-quisommesnous/cffcdf2a61d84205eff67176a5406e2b.jpg' %}" alt="logo1"></div>
+                            <div> <img class="quisommesnous_logo" src="{% static 'images-quisommesnous/télécharger.jfif' %}" alt="logo2"></div>
+                            <div> <img class="quisommesnous_logo" src="{% static 'images-quisommesnous/télécharger (1).jfif' %}" alt="logo3"></div>
+                            <div> <img class="quisommesnous_logo" src="{% static 'images-quisommesnous/e1977c5e3bd414794ffcb63cec8fdfc1.jpeg' %}" alt="logo4"></div>
+                            <div> <img class="quisommesnous_logo" src="{% static 'images-quisommesnous/LOGO RIDF_2019.png' %}" alt="logo5"></div>
+                </div> <!--Fermeture troisième bloc "Notre partenaires"--> 
+        </section>
+
+         {%endif%}
+         <!-- End of Qui sommes-nous?-->
+
+     
+
+    <!--Ici le contenu du site web/Contact-->
+     {% if page == 'contact'%}
+     
+     <section id="contact">
+
+        <h1 id="contact_titre1">Contact</h1>
+
+        <div id="contact_blocgeneral"> <!--Bloc général pour flexbox-->
+
+            <div id="contact_gauche"><!--Blocs à gauche-->
+
+                <!--Carte d'informations générales-->
+                <div id="contact_carte">
+                    <h2 class="contact_titre2">Green Planet</h2>
+                    <ul id="contact_informations">
+                        <li class="contact_list"><img class="contact_icones" src="{% static 'images-contact/localisateur.svg' %}" alt="icone adresse">15 rue Henri Chevreau, 75020 Paris</li>
+                        <li class="contact_list"><img class="contact_icones" src="{% static 'images-contact/telephone.svg' %}" alt="icone numero">06 01 02 03 04</li>
+                        <li class="contact_list"><img class="contact_icones" src="{% static 'images-contact/mail.svg' %}" alt="icone mail"><a href="#">contact@greenplanet.com</a></li>
+                        <li class="contact_list"><img class="contact_icones" src="{% static 'images-contact/horloge.svg' %}" alt="icone dispo">Du lundi au vendredi, 9h à 18h</li>
+                    </ul>
+                </div>
+
+                <!--Nos secteurs d'intervention-->
+                <div id="contact_secteurs">
+                    <h2 class="contact_titre3"><img class="contact_loc" src="{% static 'images-contact/loc2.svg' %}" alt="icone localisation">Nos secteurs d'intervention</h2>
+                    <div id="contact_texteintervention">Nous intervenons partout en France métropolitaine</div>
+                </div>
+
+            </div><!--Fermeture blocs à gauche-->
+
+            <div id="contact_droite"><!--Bloc à droite-->
+
+                <!--Formulaire de contact-->
+                <div id="contact_formulaire">
+                    <h2 class="contact_titre3">Nous contacter</h2>
+
+                    <form id="contact_survey-form">
+                        <div class="contact_case">
+                            <label for="contact_name" id="contact_name-label">Prénom Nom</label> <input type="text" id="contact_name" placeholder="Malik Dupont" required/>
+                        </div>
+                    
+                        <div class="contact_case">
+                            <label for="contact_email" id="contact_email-label">Votre adresse mail</label> <input type="email" id="contact_email" placeholder="malik.dupont@monmail.com" required/>
+                        </div>
+
+
+                        <div class="contact_case">
+                            <label for="contact_comments" id="contact_comments-label">Votre message</label>
+                            <textarea id="contact_comments" name="comments" rows="5" cols="40" placeholder="Mon message"></textarea>
+                        </div>
+
+                        <div class="contact_end">
+                            <button type="submit" id="contact_submit"><div id="contact_icon-envoi"><i class="fa-regular fa-paper-plane"></i></div></button>
+                        </div>    
+                    </form>
+
+
+                </div>
+
+            </div> <!--Fermeture bloc à droite-->
+
+        </div> <!--Fermeture bloc général-->   
+    </section>
+     {%endif%}
+     <!-- End of Contact-->
+
+
+     <!--Ici le contenu du site web/Chatbot-->
+    {% if page == 'chatbot'%}
+    <div id="chatbox" style="height: 300px; width: 500px; border: 1px solid black; overflow: scroll;">
+         <h2>Moi:{{question}}</h2>
+         <h2>Bot:{{reponse}}</h2>
+    </div>
         <form method="post">
             {% csrf_token%}
             <input type="text" name="question" value="{{question}}">
             <input type="submit" name="Envoyer">
-
         </form>
+    {%endif%}
+<!--End of Chatbot-->
 
-         {%endif%}
-
-     {% if page == 'service'%} 
-     partie service 
-     {%endif%}
 
     <div id="footer_blocblanc"></div>
     <!--Code pour le footer-->

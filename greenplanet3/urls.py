@@ -24,11 +24,11 @@ from django.conf import settings #Anna
 urlpatterns = [
   path("admin/", admin.site.urls),
   
-   #accueil
    path("", views.home, name="home"),
    path("home/", views.home, name="index"),
-   path("chatbot/", views.chatbot, name="chatbot"),
    path("service/", views.service, name="service"),
+   path("about/", views.about, name="about"),
+   path("contact/", views.contact, name="contact"),
+   path("chatbot/", views.chatbot, name="chatbot"),
     
-
 ]

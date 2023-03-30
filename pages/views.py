@@ -4,25 +4,33 @@ from django.template import loader #Anna
 from greenchatbot.models import QuestionReponse
 from django.views.decorators.csrf import csrf_exempt
 
-
 import nltk
 from nltk.chat.util import Chat, reflections
 
-# Create your views here.
-# def home(request):
-#     # Exemple de page HTML, non valide pour que l'exemple soit concis Anna
-#     text = "<h1>Bienvenue sur mon blog !</h1>"
-#     text = text+ "<p>premier texte de présentation !</p>"
-#     return HttpResponse(text)
 
 
-#Anna start
-   #accueil
+
 template = loader.get_template('index.html')
 
 def home (request) :
   data= {'page':'home'}
   return(HttpResponse(template.render(data)))
+
+
+def service (request) :
+  data= {'page':'service'}
+  return(HttpResponse(template.render(data)))
+
+
+def about (request) :
+  data= {'page':'about'}
+  return(HttpResponse(template.render(data)))
+
+
+def contact (request) :
+  data= {'page':'contact'}
+  return(HttpResponse(template.render(data)))
+
 
 @csrf_exempt
 def chatbot (request) :
@@ -51,6 +59,7 @@ def chatbot (request) :
 
    return(HttpResponse(template.render(data)))
 
-def service (request) :
-  data= {'page':'service'}
-  return(HttpResponse(template.render(data)))
+
+
+
+
