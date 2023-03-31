@@ -26,7 +26,7 @@
     {%endif%}
 
     {% if page == 'chatbot' %} 
-      <link rel="stylesheet" href="{% static 'css/.css' %}" type="text/css"/>
+      <link rel="stylesheet" href="{% static 'css/chatbot.css' %}" type="text/css"/>
       <title>Green Planet | Chatbot</title>
     {%endif%}
 
@@ -464,7 +464,7 @@
      
 
     <!--Ici le contenu du site web/Contact-->
-     {% if page == 'contact'%}
+     {% if page == 'contact' %}
      
      <section id="contact">
 
@@ -531,17 +531,32 @@
 
 
      <!--Ici le contenu du site web/Chatbot-->
-    {% if page == 'chatbot'%}
-    <div id="chatbox" style="height: 300px; width: 500px; border: 1px solid black; overflow: scroll;">
-         <h2>Moi:{{question}}</h2>
-         <h2>Bot:{{reponse}}</h2>
-    </div>
+     
+     {% if page == 'chatbot' %}
+     <div id="chatbox" style="height: 300px; width: 500px; border: 1px solid black; overflow: scroll;">
+      <ol class="chat">
+      {% for msg in history %}
+              {% if msg.type == "user" %}
+              <li class="other"><div class="avatar"><img src="{% static 'images-general/logo-green-planet.png' %}" draggable="false"/></div>
+                <div class="msg"><p>{{ msg.content }}</p><time>20:17</time></div></li>
+              {% else %}
+              <li class="self"><div class="avatar"><i class="fa-solid fa-user"></i></div>
+                <div class="msg2"><p>{{ msg.content }}</p><time>20:17</time></div></li>
+              {% endif %}
+          {% endfor %}
+      </div>
+      </ol>   
+
         <form method="post">
             {% csrf_token%}
-            <input type="text" name="question" value="{{question}}">
+            <input type="hidden" size=80 name="history" value="{{history}}">
+            <input type="text" name="question" value="">
             <input type="submit" name="Envoyer">
+
         </form>
-    {%endif%}
+
+     {% endif %}
+
 <!--End of Chatbot-->
 
 
