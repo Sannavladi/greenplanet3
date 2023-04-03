@@ -1,6 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Montserrat&family=Tilt+Neon&display=swap');
-@import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
-/* Code pour le header - Code pour le header - Code pour le header*/
+
+
+* {
+    margin: 0;
+    padding:0;
+    text-decoration: none;
+    list-style: none;
+}
+
+
+.page-titre{
+    font-family: "Tilt Neon", Arial;
+    text-align: center;
+}
+
 header{
     background-color: #FFCA08;
     background-position: top;
@@ -59,23 +72,138 @@ header a {
     display:none;
 }
 
-/* Fin code pour le header - Fin code pour le header - Fin code pour le header */
+.navbar{
+    margin:0px;
 
+}
+/* Fin code pour le header - Fin code pour le header - Fin code */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Montserrat&family=Tilt+Neon&display=swap');
+@import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+
+
+/* Fin code pour le header - Fin code pour le header - Fin code */
+
+
+#chatbot_titre1 {
+    font-family: "Fredoka One", cursive;
+    text-transform: uppercase;
+    text-align: center;
+    padding:auto;
+    font-size:2rem;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+
+.chatbot{
+    border: 3px solid #79C2BE;
+    border-radius: 30px;
+    height: 600px;
+    width: 850px;
+    margin: auto;
+    margin-top: 20px;
+    padding-top: 30px;
+    background-color: #2362B0
+}
+
+#chatbox{
+    background-color:#79C2BE;
+    margin:auto;
+    height: 500px;
+    width: 800px;
+    border-radius: 30px;
+    overflow: auto;
+    overflow-y: scroll; /* pour permettre le défilement vertical*/
+    scroll-behavior: smooth; /* le défilement se fera de manière fluide */
+    
+}
+
+#chatbox::-webkit-scrollbar {
+    display: none; /* Masquer la scrollbar de défilement dans Chrome et Safari */
+  }
+
+  h2 {
+    font-family: "Montserrat";
+    text-transform: uppercase;
+    text-align: center;
+    padding:auto;
+    font-size:1rem;
+    margin-top: 20px;
+  }  /* pour le titre du chat, indiquant la date actuelle */
+
+input {
+    width: 600px;
+    height: 40px;
+    border:5px solid #79C2BE;
+    border-radius:30px;
+    margin:10px;
+    padding-left: 20px;
+    outline:none;
+}
+
+
+#message_submit{
+    display:flex;
+    justify-content: flex-end;
+    align-content: flex-end;
+    background-color: #FFCA08;
+    border-radius: 50%;
+    border-style:none;
+    width: 50px;
+    height: 50px;
+    margin:10px;
+}
+
+
+#message_submit:hover{
+    
+    color:white;
+    cursor:pointer;
+    transform: scale(1.2);
+    transition: all 500ms ease;
+}
 
 .chat {
     list-style: none;
     background: none;
-	background-color: #79C2BE;
+    background-color: #79C2BE;
     margin: 0;
     padding: 0 0 50px 0;
     margin-top: 60px;
     margin-bottom: 10px;
+	
 }
-.chat li {
+.chat .user {
     padding: 0.5rem;
-    overflow: hidden;
     display: flex;
+    
+   
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 100px;
+    margin-right: 0px;
+
 }
+
+.chat .bot {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
 .chat .avatar {
     width: 40px;
     height: 40px;
@@ -84,60 +212,134 @@ header a {
     z-index: 2;
     border-radius: 100%;
     background-color: rgba(255,255,255,0.9);
-}
-.chat .avatar img {
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-    
-    
-    
-}
-.other .msg {
-    order: 1;
-    border-top-left-radius: 0px;
-    box-shadow: -1px 2px 0px #D4D4D4;
-}
-
-
-.self {
-    justify-content: flex-end;
-    align-items: flex-end;
-}
-.self .msg {
-    order: 1;
-    border-bottom-right-radius: 0px;
-    box-shadow: 1px 2px 0px #D4D4D4;
-}
-.self .avatar {
     order: 2;
 }
 
 
-.msg {
-    background: #FFCA08;
-    min-width: 200px;
-    padding: 10px;
-    border-radius: 20px;
-    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.07);
+
+.chat .avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%; 
+    background-color: #FFCA08;
+    
 }
 
-.msg2 {
+.user .msg {
+    order: 1;
+    box-shadow: -1px 2px 0px #D4D4D4;
+    margin-left: 225px;
+    
+}
+
+.bot {
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+}
+.bot .msg {
+    order: 2;
+    box-shadow: 1px 2px 0px #D4D4D4;
+    margin-right: 60px;
+}
+.bot .avatar {
+    order: 1;
+    
+}
+
+.bot:nth-child(odd) .msg {
+    margin-left: auto;
+  }
+  
+.user:nth-child(odd) .msg {
+    margin-right: auto;
+}
+
+
+
+.bot li {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    
+   
+}
+
+.user li {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-left: 100px;
+    margin-right: 0px;
+    
+   
+}
+
+.heure{
+    font-size: 0.6em;
+}
+
+.msg{
     background: white;
-    min-width: 200px;
+    min-width: 400px;
     padding: 10px;
     border-radius: 20px;
     box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.07);
+    margin-left: 100px;
+    margin-right: 0px;
 }
-
 
 .msg p {
-    font-size: 0.8rem;
+    text-align: start;
+    font-size: 1rem;
     margin: 0 0 0.2rem 0;
     color: black;
+    display:flex;
+    justify-content: flex-start;
+    font-family: "Fredoka One";
 }
 
+ .msg2{
+    background: #FFCA08;
+    min-width: 400px;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+ 
+.msg2 p{
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 0 0 0.2rem 0;
+    text-align: start;
+    display:flex;
+    justify-content: flex-start;
+    background-color: #FFCA08;
+    font-family: "Fredoka One";
+}
 
+#message_icon-envoi{
+    color:white;  
+    font-size: 1.7rem;
+    margin:auto;
+}
+
+#greenchatbot-icon{
+    color:white;  
+    font-size: 1.7rem;
+    margin:auto;
+    width: 40PX;
+    margin:auto;
+}
+
+.espace-envoie {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
 
 /* Code pour le footer - Code pour le footer - Code pour le footer - */
 
@@ -155,7 +357,7 @@ footer {
     position:fixed; /*pour coller le footer en bas */
     bottom: 0; left: 0; right: 0;
     width:100%;
-    height:auto;
+    height:61.56px;
 }
 
 #footer_gauche{
@@ -191,49 +393,17 @@ footer a:hover {
 
 /* Fin code pour le footer - Fin code pour le footer - Fin code pour le footer - */
 
+ /* PARTIE RESPONSIVE TELEPHONE*/
+@media (max-width: 550px){
 
-@media (min-width:551px) and (max-width:768px) {
-/*Code media queries pour le contenu de contact*/
-#contact_blocgeneral {
-    display: flex;
-    width: auto;
-    flex-direction: column;
-}
-
-#contact_gauche {
-    width:100%;
-}
-
-#contact_droite {
-    width: 100%;
-}
-
-#contact_carte {
-    margin-right:10px;
-}
-
-#contact_secteurs {
-    margin-right: 0;
-    margin-bottom:10px;
-}
-
-#contact_formulaire {
-    margin-left:0;
-}
-
-/*Fin code media queries pour le contenu de contact*/
-
-}
-
-
-@media (max-width: 550px) {
     /*Code media queries pour le header*/
+     
     nav
     {
         height: 60px;
         width: auto;
     }
- 
+    
     nav #header_ul
     {
         display: none;
@@ -242,11 +412,11 @@ footer a:hover {
         height: auto;
         position: relative;
     }
- 
+    
     nav #header_ul a {
         width: 50%;
     }
- 
+    
     #header_burger
     {
         width: 30px;
@@ -258,11 +428,11 @@ footer a:hover {
         color:#2362B0;
         cursor: pointer;
     }
-
+    
     #header_toggle:checked + #header_ul {
         display: flex;
     }
-
+    
     #header_logo {
         width:50px;
         margin:10px;
@@ -271,42 +441,5 @@ footer a:hover {
     #header_green-planet {
         margin-left:10px;
     }
-
-    /*Fin code media queries pour le header*/
-
-    /*Code media queries pour le contenu de contact*/
-    #contact_blocgeneral {
-        display: flex;
-        width: auto;
-        flex-direction: column;
-    }
-
-    #contact_gauche {
-        width:100%;
-    }
-    
-    #contact_droite {
-        width: 100%;
-    }
-
-    #contact_carte {
-        margin-right:10px;
-        }
-    
-
-    #contact_secteurs {
-        margin-right: 0;
-        margin-bottom:20px;
-    }
-
-    .contact_loc {
-        margin-left:30px;
-    }
-
-    #contact_formulaire {
-        margin-left:0;
-    }
-
-    /*Fin code media queries pour le contenu de contact*/
-
 }
+    /*Fin code media queries pour le header*/

@@ -516,9 +516,9 @@
 
                         <div class="contact_end">
                             <button type="submit" id="contact_submit"><div id="contact_icon-envoi"><i class="fa-regular fa-paper-plane"></i></div></button>
+                    
                         </div>    
                     </form>
-
 
                 </div>
 
@@ -532,30 +532,50 @@
 
      <!--Ici le contenu du site web/Chatbot-->
      
-     {% if page == 'chatbot' %}
-     <div id="chatbox" style="height: 300px; width: 500px; border: 1px solid black; overflow: scroll;">
-      <ol class="chat">
-      {% for msg in history %}
-              {% if msg.type == "user" %}
-              <li class="other"><div class="avatar"><img src="{% static 'images-general/logo-green-planet.png' %}" draggable="false"/></div>
-                <div class="msg"><p>{{ msg.content }}</p><time>20:17</time></div></li>
-              {% else %}
-              <li class="self"><div class="avatar"><i class="fa-solid fa-user"></i></div>
-                <div class="msg2"><p>{{ msg.content }}</p><time>20:17</time></div></li>
-              {% endif %}
-          {% endfor %}
-      </div>
-      </ol>   
+      {% if page == 'chatbot'%}
+      <h1 id="chatbot_titre1">Green bot</h1>
+      <section class="chatbot">
+        <div id="chatbox" >
 
+          <h2>{{titre}}</h2>
+          <ol class="chat">
+             <!--Chat ecran-->
+            {% for msg in history %}
+            {% if msg.type == "user" %}
+            <li class="user">
+              <div class="avatar"><img src="{% static 'images-general/icon.png' %}" draggable="false"/></div><!--User-->
+              <div class="msg"><p>{{ msg.content }}</p><time class="heure">{{msg.time}}</time></div>
+            </li>
+            {% else %}
+      
+            <li class="bot">
+              <div class="avatar"><img src="{% static 'images-general/logo-green-planet.png' %}" draggable="false"/></div><!--Bot-->
+              <div class="msg2"><p>{{ msg.content }}</p><time class="heure">{{msg.time}}</time></div>
+            </li>
+                 
+            {% endif %}
+            {% endfor %}
+          </ol> 
+        </div>
+        
+        
         <form method="post">
-            {% csrf_token%}
-            <input type="hidden" size=80 name="history" value="{{history}}">
-            <input type="text" name="question" value="">
-            <input type="submit" name="Envoyer">
 
+          {% csrf_token%}
+          <div class="espace-envoie">
+            <div class="espace-ecriture"><input type="text "name="question" value="{{question}}" placeholder="Taper votre question..."></div>
+            <button type="submit" id="message_submit"><div id="message_icon-envoi"><i class="fa-regular fa-paper-plane"></i></div></button>
+            <input type="hidden" size="80px" name="history" value="{{history}}" >
+          </div>
         </form>
 
-     {% endif %}
+        <script>
+          var chatbox = document.getElementById("chatbox");
+          chatbox.scrollTop = chatbox.scrollHeight;  
+        </script><!--pour faire défiler automatiquement l'élément jusqu'en bas-->
+      
+      </section>
+      {%endif%} 
 
 <!--End of Chatbot-->
 
